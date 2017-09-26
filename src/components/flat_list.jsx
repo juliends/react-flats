@@ -8,13 +8,15 @@ const FlatList = (props) => {
   return (
     <div className='flat-list'>
       {
-        flats.map(flat => <Flat 
+        flats.map(flat => <Flat
+          flatDetails={flat}
           key={flat.price} 
           price={flat.price} 
           name={flat.name} 
           imageUrl={flat.imageUrl}
-          geoloc={[flat.lat, flat.lng]}
-          onListItemClick={props.selectedCard}
+          lat={flat.lat}
+          lng={flat.lng}
+          handleClick={props.handleClick}
         />
         )
       }

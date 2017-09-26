@@ -1,35 +1,31 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
+import ReactDOM from 'react-dom';
 import Flat from './flat';
 import FlatList from './flat_list';
-import GoogleMapReact from 'google-map-react';
+import flats from '../data/flats';
+import SimpleMap from './simple_map';
 
 class App extends Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      defaultCenter: {lat: 59.95, lng: 30.33},
-      defaultZoom: 9
-    }
+    this.state = {lat: flats[0].lat, lng: flats[0].lng}
   }
 
-  selectedFlat = (coordinates) => {
-    console.log(coordinates);
-    this.setState({ defaultCenter: {lat: coordinates[0],lng: coordinates[1]}});
+  handleSelectFlat = (latitude, longitude) => {
+    this.setState({lat: latitude, lng: longitude});
   }
-  
-  render(){
+
+  render() {
     return (
       <div>
-        <FlatList selectedCard={this.selectedFlat}/>
-        <div className="map-container">
-          <GoogleMapReact
-            defaultCenter={this.state.defaultCenter}
-            defaultZoom={this.state.defaultZoom}
-          />
+        <div className='flat-list'>
+          <FlatList flats={flats} handleClick={this.handleSelectFlat}/>
+        </div>
+        <div className='map-container'>
+          <SimpleMap lat={this.state.lat} lng={this.state.lng} />
         </div>
       </div>
-    )
+    );
   }
 }
 

@@ -5,10 +5,15 @@ class Flat extends Component {
     super(props);
   }
 
+  helperHandleClick = () => {
+    // console.log(this.props.lat);
+    this.props.handleClick(this.props.lat, this.props.lng);
+  }
+
   render(){
     return (
       <div className="card" style={{backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.2)), url(${this.props.imageUrl})`}}
-        onClick={() => this.props.onListItemClick(this.props.geoloc)}
+        onClick={this.helperHandleClick}
         >
         <div className="card-category">{this.props.price}</div>
         <div className="card-description">
