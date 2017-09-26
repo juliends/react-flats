@@ -1,13 +1,15 @@
 import React from 'react';
-import Flats from '../data/flats';
+import flats from '../data/flats';
 import Flat from './flat';
 
-console.log(Flats);
+console.log(flats);
 
 const FlatList = (props) => {
-  return(
-    <div>
-      {Flats.map(flat => <Flat/>)}
+  return (
+    <div className='flat-list'>
+      {
+        flats.map(flat => <Flat key={flat.price} price={flat.price} name={flat.name} imageUrl={flat.imageUrl}/>)
+      }
     </div>
   )
 }

@@ -7,7 +7,6 @@ import App from './components/app';
 // internal modules
 import '../assets/stylesheets/application.scss';
 
-
 // A simple example of a functional component
 // const Hello = props => <h1>Hello, {props.name}</h1>;
 
