@@ -2,7 +2,7 @@ import React from 'react';
 import flats from '../data/flats';
 import Flat from './flat';
 
-console.log(flats);
+// console.log(flats);
 
 const FlatList = (props) => {
   return (
