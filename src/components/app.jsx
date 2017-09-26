@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Flat from './flat';
+import FlatList from './flat_list';
 
 class App extends Component {
   constructor(props) {
@@ -8,7 +9,7 @@ class App extends Component {
   
   render(){
     return (
-      <Flat/>
+      <FlatList/>
     )
   }
 }
